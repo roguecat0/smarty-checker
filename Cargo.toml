@@ -1,0 +1,9 @@
+[package]
+name = "smarty-checker"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tree-sitter = "0.26.9"
+tree-sitter-html = "0.23.2"
+tree-sitter-smarty2 = {"path" = "../tree-sitter-smarty2"}
