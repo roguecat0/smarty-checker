@@ -163,7 +163,7 @@ version = "0.1.0"
 dependencies = [
  "tree-sitter",
  "tree-sitter-html",
- "tree-sitter-smarty2",
+ "tree-sitter-smarty",
 ]
 
 [[package]]
@@ -214,8 +214,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "009994f150cc0cd50ff54917d5bc8bffe8cad10ca10d81c34da2ec421ae61782"
 
 [[package]]
-name = "tree-sitter-smarty2"
+name = "tree-sitter-smarty"
 version = "0.1.0"
+source = "git+https://github.com/hex-cat-man/tree-sitter-smarty.git#6ced040bd8029c817c79e4430bfa83e72aeb1064"
 dependencies = [
  "cc",
  "tree-sitter-language",

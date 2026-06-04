@@ -7,7 +7,17 @@ pub fn is_control_flow(node: Node) -> bool {
 pub fn is_control_flow_kind(kind: &str) -> bool {
     matches!(
         kind,
-        "if" | "else_if" | "else" | "foreach" | "foreach_else" | "block" | "nocache"
+        "if_block"
+            | "elseif_block"
+            | "else_block"
+            | "foreach_block"
+            | "foreachelse_block"
+            | "for_block"
+            | "forelse_block"
+            | "section_block"
+            | "sectionelse_block"
+            | "while_block"
+            | "block"
     )
 }
 
@@ -20,15 +30,19 @@ pub fn is_control_flow_parent(node: Node) -> bool {
 pub fn is_smarty_construct(node: Node) -> bool {
     matches!(
         node.kind(),
-        "inline"
-            | "include"
+        "tag"
             | "block"
-            | "foreach"
-            | "foreach_else"
-            | "if"
-            | "else_if"
-            | "else"
-            | "nocache"
+            | "if_block"
+            | "elseif_block"
+            | "else_block"
+            | "foreach_block"
+            | "foreachelse_block"
+            | "for_block"
+            | "forelse_block"
+            | "section_block"
+            | "sectionelse_block"
+            | "while_block"
+            | "literal_block"
     )
 }
 

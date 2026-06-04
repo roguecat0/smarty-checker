@@ -77,7 +77,7 @@ fn main() {
 fn parse_smarty(source: &str) -> Tree {
     let mut parser = Parser::new();
     parser
-        .set_language(&tree_sitter_smarty2::LANGUAGE.into())
+        .set_language(&tree_sitter_smarty::LANGUAGE.into())
         .expect("smarty grammar should load");
     parser
         .parse(source, None)
@@ -121,7 +121,17 @@ fn is_control_flow_parent(node: Node) -> bool {
         .map(|parent| {
             matches!(
                 parent.kind(),
-                "if" | "else_if" | "else" | "foreach" | "foreach_else" | "block" | "nocache"
+                "if_block"
+                    | "elseif_block"
+                    | "else_block"
+                    | "foreach_block"
+                    | "foreachelse_block"
+                    | "for_block"
+                    | "forelse_block"
+                    | "section_block"
+                    | "sectionelse_block"
+                    | "while_block"
+                    | "block"
             )
         })
         .unwrap_or(false)
@@ -148,6 +158,16 @@ fn direct_html_fragment(source: &str, body: Node) -> String {
 fn is_nested_control_flow(node: Node) -> bool {
     matches!(
         node.kind(),
-        "if" | "else_if" | "else" | "foreach" | "foreach_else" | "block" | "nocache"
+        "if_block"
+            | "elseif_block"
+            | "else_block"
+            | "foreach_block"
+            | "foreachelse_block"
+            | "for_block"
+            | "forelse_block"
+            | "section_block"
+            | "sectionelse_block"
+            | "while_block"
+            | "block"
     )
 }

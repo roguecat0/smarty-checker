@@ -77,7 +77,7 @@ fn main() {
 fn parse_smarty(source: &str) -> Tree {
     let mut parser = Parser::new();
     parser
-        .set_language(&tree_sitter_smarty2::LANGUAGE.into())
+        .set_language(&tree_sitter_smarty::LANGUAGE.into())
         .expect("smarty grammar should load");
     parser
         .parse(source, None)

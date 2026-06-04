@@ -28,7 +28,7 @@ impl std::error::Error for ParseSetupError {}
 pub fn parse_smarty(source: &str) -> Result<Tree, ParseSetupError> {
     let mut parser = Parser::new();
     parser
-        .set_language(&tree_sitter_smarty2::LANGUAGE.into())
+        .set_language(&tree_sitter_smarty::LANGUAGE.into())
         .map_err(ParseSetupError::Smarty)?;
     parser
         .parse(source, None)

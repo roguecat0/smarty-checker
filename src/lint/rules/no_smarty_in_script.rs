@@ -167,7 +167,7 @@ mod tests {
 
         assert_eq!(diagnostics.len(), 1);
         assert_eq!(diagnostics[0].rule_id, "smarty/no-smarty-in-script");
-        assert!(diagnostics[0].message.contains("inline"));
+        assert!(diagnostics[0].message.contains("tag"));
     }
 
     #[test]
